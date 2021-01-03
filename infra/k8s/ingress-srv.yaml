@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-service
+spec:
+  rules:
+    - host: goals.dev
+      http:
+        paths:
+        - path: /api/goals/
+          pathType: Prefix
+          backend:
+              service:
+                name: goals-srv
+                port: 
+                  number: 3000
